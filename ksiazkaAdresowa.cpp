@@ -1,5 +1,11 @@
 #include "ksiazkaAdresowa.h"
 
+
+KsiazkaAdresowa::KsiazkaAdresowa()
+{
+        string nazwaPlikuZUzytkownikami = "Uzytkownicy.txt";
+}
+
 void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
@@ -19,7 +25,7 @@ Uzytkownik KsiazkaAdresowa::podajDaneNowegoUzytkownika()
     string login, haslo;
     do
     {
-        cout << endl << "Podaj login: ";
+        cout << "Podaj login: ";
         cin >> login;
         uzytkownik.ustawLogin(login);
     }
@@ -52,4 +58,56 @@ bool KsiazkaAdresowa::czyIstniejeLogin(string login)
         }
     }
     return false;
+}
+
+void KsiazkaAdresowa::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
+{
+    fstream plikTekstowy;
+    string liniaZDanymiUzytkownika = "";
+    plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::app);
+
+    if (plikTekstowy.good() == true)
+    {
+        liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownik);
+
+        if (czyPlikJestPusty(plikTekstowy) == true)
+        {
+            plikTekstowy << liniaZDanymiUzytkownika;
+        }
+        else
+        {
+            plikTekstowy << endl << liniaZDanymiUzytkownika ;
+        }
+        plikTekstowy.close();
+    }
+    else
+        cout << "Nie udalo sie otworzyc pliku " << nazwaPlikuZUzytkownikami << " i zapisac w nim danych." << endl;
+}
+
+string KsiazkaAdresowa::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik)
+{
+    string liniaZDanymiUzytkownika = "";
+
+    liniaZDanymiUzytkownika += konwerjsaIntNaString(uzytkownik.pobierzId())+ '|';
+    liniaZDanymiUzytkownika += uzytkownik.pobierzLogin() + '|';
+    liniaZDanymiUzytkownika += uzytkownik.pobierzHaslo() + '|';
+
+    return liniaZDanymiUzytkownika;
+}
+
+string KsiazkaAdresowa::konwerjsaIntNaString(int liczba)
+{
+    ostringstream ss;
+    ss << liczba;
+    string str = ss.str();
+    return str;
+}
+
+bool KsiazkaAdresowa::czyPlikJestPusty(fstream &plikTekstowy)
+{
+    plikTekstowy.seekg(0, ios::end);
+    if (plikTekstowy.tellg() == 0)
+        return true;
+    else
+        return false;
 }
