@@ -1,10 +1,12 @@
 #include <iostream>
-#include "ksiazkaAdresowa.h"
+#include "KsiazkaAdresowa.h"
 using namespace std;
 
 int main()
 {
-    KsiazkaAdresowa ksiazka;
+    KsiazkaAdresowa ksiazkaAdresowa;
+    ksiazkaAdresowa.rejestracjaUzytkownika();
+    ksiazkaAdresowa.rejestracjaUzytkownika();
     return 0;
 }
 
