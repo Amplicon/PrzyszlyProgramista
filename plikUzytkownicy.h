@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include<cstdlib>
 #include "Uzytkownik.h"
 #include "MetodyPomocnicze.h"
 using namespace std;
@@ -13,10 +14,12 @@ class PlikUzytkownicy
     fstream plikTekstowy;
     bool czyPlikJestPusty();
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
+    Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
 
 
 public:
     PlikUzytkownicy();
+    vector <Uzytkownik> wczytajUzytkownikowZPliku();
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
 
 };
