@@ -1,12 +1,10 @@
 #include "PlikUzytkownicy.h"
-PlikUzytkownicy::PlikUzytkownicy()
-{
-    nazwaPlikuZUzytkownikami="BazaUzytkownikow.txt";
-}
 
 void PlikUzytkownicy::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
 {
     string liniaZDanymiUzytkownika = "";
+    fstream plikTekstowy;
+
     plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::app);
 
     if (plikTekstowy.good() == true)
@@ -27,7 +25,7 @@ void PlikUzytkownicy::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
         cout << "Nie udalo sie otworzyc pliku " << nazwaPlikuZUzytkownikami << " i zapisac w nim danych." << endl;
 }
 
-bool PlikUzytkownicy::czyPlikJestPusty()
+bool PlikUzytkownicy::czyPlikJestPusty()//here
 {
     plikTekstowy.seekg(0, ios::end);
     if (plikTekstowy.tellg() == 0)
@@ -82,6 +80,7 @@ vector <Uzytkownik> PlikUzytkownicy::wczytajUzytkownikowZPliku()
 {
     Uzytkownik uzytkownik;
     vector <Uzytkownik> uzytkownicy;
+    fstream plikTekstowy;
     string daneJednegoUzytkownikaOddzielonePionowymiKreskami = "";
 
     plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::in);
