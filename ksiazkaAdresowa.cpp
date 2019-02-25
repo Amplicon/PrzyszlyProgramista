@@ -5,10 +5,34 @@ void KsiazkaAdresowa::rejestracjaUzytkownika()
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
 
+bool KsiazkaAdresowa::zalogowanyUzytkownik()
+{
+    bool statusUzytkownika=false;
+
+    if( uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika()>0)
+    {
+        statusUzytkownika=true;
+        return statusUzytkownika;
+    }
+    else if(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika()==0)
+    {
+        statusUzytkownika=false;
+        return statusUzytkownika;
+    }
+    else
+    {
+        cout<<"Bledne Id Uzytkownika";
+        return statusUzytkownika=false;
+    }
+
+}
+
 void KsiazkaAdresowa::logowanieUzytkownika()
 {
-    //zwroci czy uzytkownik sie zalogowal czy nie
+    uzytkownikMenedzer.logowanieUzytkownika();
+}
 
-    //a tutaj przekaze dalej id zalogowanego uzytkownika do obiektu adresatMenedzer(chyba)
-    //ustalajac fakt zalogowania z obiektem uzytkownikMenedzer
+void KsiazkaAdresowa::wylogujUzytkownika()
+{
+    uzytkownikMenedzer.wylogujUzytkownika();
 }

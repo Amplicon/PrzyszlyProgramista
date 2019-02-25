@@ -26,6 +26,10 @@ public:
     Uzytkownik podajDaneNowegoUzytkownika();
     void rejestracjaUzytkownika();
     void wczytajUzytkownikowZPliku();
+    int pobierzIdZalogowanegoUzytkownika();
+    void logowanieUzytkownika();
+    void wylogujUzytkownika();
+
 
 
 };
