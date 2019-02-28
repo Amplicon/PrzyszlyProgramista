@@ -82,6 +82,7 @@ void UzytkownikMenedzer::logowanieUzytkownika()
                 if (uzytkownicy[i].pobierzHaslo() == haslo)
                 {
                     cout << endl << "Zalogowales sie." << endl << endl;
+                    idZalogowanegoUzytkownika=uzytkownicy[i].pobierzId();
                     system("pause");
                     return;
                 }
@@ -99,4 +100,22 @@ void UzytkownikMenedzer::logowanieUzytkownika()
 void UzytkownikMenedzer::wylogujUzytkownika()
 {
     idZalogowanegoUzytkownika=0;
+}
+
+void UzytkownikMenedzer::zmianaHaslaUzytkownika()
+{
+    string noweHaslo = "";
+    cout << "Podaj nowe haslo: ";
+    cin >> noweHaslo;
+
+    for (unsigned i=0;i<uzytkownicy.size();i++)
+    {
+        if (uzytkownicy[i].pobierzId() == idZalogowanegoUzytkownika)
+        {
+            uzytkownicy[i].ustawHaslo(noweHaslo);
+            cout << "Haslo zostalo zmienione." << endl << endl;
+            Sleep(500);
+        }
+    }
+    plikUzytkownicy.aktualizujPlikUzytkownicy(uzytkownicy);
 }

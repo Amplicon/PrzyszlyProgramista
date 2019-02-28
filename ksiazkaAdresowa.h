@@ -22,5 +22,6 @@ public:
     void wylogujUzytkownika(); //zmienia id uzytkownika na 0
     void dodajKontakt();
     void wyswietlWszytskieKontakty();
+    void zmianaHaslaUzytkownika();
 };
 #endif//KSIAZKAADRESOWA_H

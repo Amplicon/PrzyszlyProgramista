@@ -11,6 +11,7 @@ int main()
     while(true){
         system("cls");
         cout<<"Menu glowne:\n1 - Rejestracja Uzytkownika\n2 - Logowanie\n3 - Wyjscie"<<endl;
+        cout<<"Status: "<<ksiazkaAdresowa.zalogowanyUzytkownik()<<endl;
         cin>> wybor;
         switch (wybor){
 
@@ -21,12 +22,15 @@ int main()
 
 
             ksiazkaAdresowa.logowanieUzytkownika();
-            while(ksiazkaAdresowa.zalogowanyUzytkownik()==true)// metoda ksiazki adresowej - nie maina
+            while(ksiazkaAdresowa.zalogowanyUzytkownik()==true)
             {
-            cout<<"Hi i am working fine";
-            ksiazkaAdresowa.wylogujUzytkownika();
+            cout<<"Hi i am working fine "<<ksiazkaAdresowa.zalogowanyUzytkownik(); //test
+            ksiazkaAdresowa.zmianaHaslaUzytkownika();
+            ksiazkaAdresowa.wylogujUzytkownika();//logout
+            cout<<ksiazkaAdresowa.zalogowanyUzytkownik();
+            system("pause");
                 //zalogujemy sie potem bedzie petla z funkcjami zwiazanymi z programem per se
-                //petla ma sprawdzac warunek czy uzytkownik jest zalogowany i tylko wtedy sie wykonywac.
+
             }
 
 
