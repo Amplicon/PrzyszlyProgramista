@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>10</y>
+      <w>240</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>KsiazkaAdresowa
+--
+-uzytkownikMenedzer: UzytkownikMenedzer
+-menedzerKontaktow: KontaktMenedzer
+
+--
++ KsiazkaAdresowa()
++ rejestracjaUzytkownika(): void
++ logowanieUzytkownika():void
++ wylogowanieUzytkownika(): void
++ dodajKontakt(): void
++ wyswietlWszytskieKontakty(): void
++ zalogowanyUzytkownik(): bool
++ zmianaHaslaUzytkownika(): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>400</x>
+      <y>10</y>
+      <w>310</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>UzytkownikMenedzer
+--
+- uzytkownicy: vector &lt;Uzytkownik&gt;
+- idZalogowanegoUzytkownika: integer
+--
++ rejestracjaUzytkownika(): void
++ logowanieUzytkownika(): void
++ zmianaHaslaUzytkownika(): void 
++ wylogowanieUzytkownika(): void
++ wczytajUzytkownikowZPliku(): void
++ pobierzIdZalogowanegoUzytkownika(): integer
+- podajDaneNowegoUzytkownika(): Uzytkownik
+- pobierzIdNowegoUzytkownika(): integer
+- czyIstniejeLogin(): bool
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>10</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Uzytkownik
+--
+- id: integer
+- login: string
+- haslo: string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>220</y>
+      <w>340</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>PlikZUzytkownikami
+--
+- nazwaPlikuZUzytkownikami: string
+- plikTekstowy: fstream
+--
++PlikUzytkownicy()
+- czyPlikJestPusty(): bool
++ dopiszUzytkownikaDoPliku(): void
++ wczytajUzytkownikowZPliku(): vector&lt;Uzytkownik&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>220</y>
+      <w>300</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>MetodyPomocnicze
+--
++ konwerjsaIntNaString(int liczba): string
+- zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(): string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>370</y>
+      <w>340</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>PlikKontakty
+--
+- nazwaPlikuZAdresatami: string
+- plikTekstowy: fstream
+--
++PlikAdresaci()
+- czyPlikJestPusty(): bool
++ dopiszKontaktDoPliku(): void
++ wczytajKontaktyZPliku(): vector&lt;Kontakt&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>270</x>
+      <y>100</y>
+      <w>120</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Kontakt
+--
+- imie: string
+- nazwisko: string
+- adres: string
+- telefon: string
+- email: string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>330</y>
+      <w>410</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>MenedzerKontaktow
+--
+- kontakty: vector &lt;Kontakt&gt;
+-- 
++ dodajKontakt(): void
++wyswietlWszystkieKontakty(): void
+- podajDaneKontaktu(): Kontakt</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
