@@ -1,5 +1,5 @@
 bin/
 obj/
 ksiazka adresowa.*
-BazaUzytkownikow.txt/
-Kontakty.txt/
+BazaUzytkownikow.txt
+Kontakty.txt
