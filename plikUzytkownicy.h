@@ -21,6 +21,7 @@ public:
     PlikUzytkownicy(string NAZWAPLIKUZUZYTKOWNIKAMI):nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){};//lista inicjalizacyjna do const nazwaPlikuZUzytkownikami;
     vector <Uzytkownik> wczytajUzytkownikowZPliku();
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
+    void aktualizujPlikUzytkownicy(vector<Uzytkownik> &uzytkownicy);
 
 };
 #endif //PLIKUZYTKOWNICY_H

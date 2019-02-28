@@ -96,3 +96,29 @@ vector <Uzytkownik> PlikUzytkownicy::wczytajUzytkownikowZPliku()
     }
     return uzytkownicy;
 }
+
+void PlikUzytkownicy::aktualizujPlikUzytkownicy(vector<Uzytkownik> &uzytkownicy)
+{
+    fstream plikTekstowy;
+    string liniaZDanymiUzytkownika = "";
+
+    plikTekstowy.open(nazwaPlikuZUzytkownikami.c_str(), ios::out);
+
+    if (plikTekstowy.good() == true)
+    {
+        for (unsigned i=0; i<uzytkownicy.size(); i++)
+        {
+            liniaZDanymiUzytkownika = zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(uzytkownicy[i]);
+
+
+                plikTekstowy << liniaZDanymiUzytkownika<<endl;
+
+
+        }
+        plikTekstowy.close();
+    }
+    else
+    {
+        cout << "Nie mozna otworzyc pliku " << nazwaPlikuZUzytkownikami << endl;
+    }
+}

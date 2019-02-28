@@ -17,6 +17,11 @@ public:
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
     };
     void rejestracjaUzytkownika();
-
+    void logowanieUzytkownika();
+    bool zalogowanyUzytkownik();//odpytuje menedzera czy uzytkownik jest zalogowany id=0 ==NIE zalogowany
+    void wylogujUzytkownika(); //zmienia id uzytkownika na 0
+    void dodajKontakt();
+    void wyswietlWszytskieKontakty();
+    void zmianaHaslaUzytkownika();
 };
 #endif//KSIAZKAADRESOWA_H
