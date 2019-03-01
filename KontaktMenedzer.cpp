@@ -50,16 +50,20 @@ Kontakt KontaktMenedzer::podajDaneNowegoKontaktu()
     cin>>nazwisko;
     nazwisko = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko);
     kontakt.ustawNazwisko(nazwisko);
+    cin.clear();
+    cin.ignore();
+
 
     cout << "Podaj numer telefonu: ";
-    cin>>telefon;
+    getline (cin,telefon);
     kontakt.ustawTelefon(telefon);
+
     cout << "Podaj email: ";
-    cin>>email;
+    getline (cin,email);
     kontakt.ustawEmail(email);
 
     cout << "Podaj adres: ";
-    cin>>adres;
+    getline (cin,adres);
     kontakt.ustawAdres(adres);
 
     return kontakt;
