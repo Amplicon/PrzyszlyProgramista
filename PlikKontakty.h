@@ -1,3 +1,18 @@
+#ifndef PLIKKONTAKTY_H
+#define PLIKKONTAKTY_H
+
+
 #include<iostream>
- //   const string nazwaPlikuZUzytkownikami;
-//     PlikUzytkownicy(string NAZWAPLIKUZUZYTKOWNIKAMI):nazwaPlikuZUzytkownikami(NAZWAPLIKUZUZYTKOWNIKAMI){};//lista inicjalizacyjna do const nazwaPlikuZUzytkownikami;
+
+using namespace std;
+
+class PlikKontakty
+{
+   const string nazwaPlikuZKontaktami;
+
+   public:
+PlikKontakty(string NAZWAPLIKUZKONTAKTAMI):nazwaPlikuZKontaktami(NAZWAPLIKUZKONTAKTAMI){cout<<NAZWAPLIKUZKONTAKTAMI;};//lista inicjalizacyjna do const nazwaPlikuZUzytkownikami;
+
+};
+
+#endif // PLIKKONTAKTY_H

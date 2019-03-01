@@ -41,3 +41,13 @@ void KsiazkaAdresowa::zmianaHaslaUzytkownika()
 {
     uzytkownikMenedzer.zmianaHaslaUzytkownika();
 }
+
+void KsiazkaAdresowa::dodajKontakt()
+{
+    kontaktMenedzer.dodajKontakt();
+}
+
+void KsiazkaAdresowa::wyswietlWszytskieKontakty()
+{
+    kontaktMenedzer.wyswietlWszystkieKontakty();
+}

@@ -3,17 +3,21 @@
 #include <iostream>
 
 #include "UzytkownikMenedzer.h"
+#include "KontaktMenedzer.h"
 
 using namespace std;
 
 class KsiazkaAdresowa
 {
 UzytkownikMenedzer uzytkownikMenedzer;
-
+KontaktMenedzer kontaktMenedzer;
 
 
 public:
-    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami):uzytkownikMenedzer(nazwaPlikuZUzytkownikami){
+    KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZKontaktami):
+    uzytkownikMenedzer(nazwaPlikuZUzytkownikami),
+    kontaktMenedzer(nazwaPlikuZKontaktami)
+    {
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
     };
     void rejestracjaUzytkownika();
