@@ -8,7 +8,7 @@ void KontaktMenedzer::dodajKontakt()
     Kontakt nowyKontakt = podajDaneNowegoKontaktu();
 
     kontakty.push_back(nowyKontakt);
-    //dopiszKontaktDoPliku(nowyKontakt);
+    plikKontakty.dopiszKontaktDoPliku(nowyKontakt);
 
     return;
 
@@ -76,4 +76,14 @@ int KontaktMenedzer::pobierzIdNowegoKontaktu()
         return 1;
     else
         return kontakty.back().pobierzId() + 1;
+}
+
+void KontaktMenedzer::wczytajKontaktyZPliku()
+{
+    kontakty = plikKontakty.wczytajKontaktyZPliku();
+}
+
+void KontaktMenedzer::ustawIdZalogowanegoUzytkownika(int id)
+{
+    this -> idZalogowanegoUzytkownika = id;
 }

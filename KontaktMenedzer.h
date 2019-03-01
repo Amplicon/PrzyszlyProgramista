@@ -11,6 +11,7 @@ using namespace std;
 
 class KontaktMenedzer
 {
+    int idZalogowanegoUzytkownika;
     vector<Kontakt> kontakty;
     PlikKontakty plikKontakty;
 
@@ -27,8 +28,9 @@ public:
 void dodajKontakt();
 Kontakt podajDaneNowegoKontaktu();
 void wyswietlWszystkieKontakty();
-
-
+void wczytajKontaktyZPliku();
+int pobierzIdZalogowanegoUzytkownika();
+void ustawIdZalogowanegoUzytkownika(int id);
 
 };
 

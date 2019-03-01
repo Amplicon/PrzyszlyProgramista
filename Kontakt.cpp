@@ -1,5 +1,9 @@
 #include "Kontakt.h"
 
+    void Kontakt::ustawIdUzytkownika(int idUzytkownika)
+    {
+        this -> idUzytkownika = idUzytkownika;
+    }
     void Kontakt::ustawId(int id)
     {
         this -> id = id;
@@ -23,6 +27,10 @@
     void Kontakt::ustawEmail(string email)
     {
         this -> email = email;
+    }
+    int Kontakt::pobierzIdUzytkownika()
+    {
+        return idUzytkownika;
     }
 
     int Kontakt::pobierzId()

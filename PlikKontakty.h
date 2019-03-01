@@ -2,16 +2,27 @@
 #define PLIKKONTAKTY_H
 
 
-#include<iostream>
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include<cstdlib>
+#include "Kontakt.h"
+#include "MetodyPomocnicze.h"
 
 using namespace std;
 
 class PlikKontakty
 {
-   const string nazwaPlikuZKontaktami;
+    fstream plikTekstowy;
+    const string nazwaPlikuZKontaktami;
+    Kontakt pobierzDaneKontaktu(string pojedynczaLiniaDanychKontaktu);
+    string przygotujDaneKontaktuDoZapisania(Kontakt kontakt);
+    bool czyPlikJestPusty();
 
-   public:
-PlikKontakty(string NAZWAPLIKUZKONTAKTAMI):nazwaPlikuZKontaktami(NAZWAPLIKUZKONTAKTAMI){cout<<NAZWAPLIKUZKONTAKTAMI;};//lista inicjalizacyjna do const nazwaPlikuZUzytkownikami;
+public:
+    PlikKontakty(string NAZWAPLIKUZKONTAKTAMI):nazwaPlikuZKontaktami(NAZWAPLIKUZKONTAKTAMI){};//lista inicjalizacyjna do const nazwaPlikuZUzytkownikami;
+    vector<Kontakt> wczytajKontaktyZPliku();
+    void dopiszKontaktDoPliku(Kontakt kontakt);
 
 };
 

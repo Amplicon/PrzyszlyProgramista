@@ -13,5 +13,6 @@ public:
     static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
 
 
+
 };
 #endif //METODYPOMOCNICZE_H

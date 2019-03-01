@@ -19,6 +19,7 @@ public:
     kontaktMenedzer(nazwaPlikuZKontaktami)
     {
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
+        kontaktMenedzer.wczytajKontaktyZPliku();
     };
     void rejestracjaUzytkownika();
     void logowanieUzytkownika();
@@ -27,5 +28,6 @@ public:
     void dodajKontakt();
     void wyswietlWszytskieKontakty();
     void zmianaHaslaUzytkownika();
+    void przekazIdUzytkownikaDoMenadzeraKontaktow();
 };
 #endif//KSIAZKAADRESOWA_H
