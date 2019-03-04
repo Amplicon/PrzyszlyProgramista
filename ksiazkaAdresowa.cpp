@@ -55,7 +55,7 @@ void KsiazkaAdresowa::wyswietlWszytskieKontakty()
 
 void KsiazkaAdresowa::przekazIdUzytkownikaDoMenadzeraKontaktow()
 {
-    int id;
+    int id=0;
     id = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
     kontaktMenedzer.ustawIdZalogowanegoUzytkownika(id);
 }

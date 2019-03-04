@@ -10,7 +10,7 @@ using namespace std;
 class KsiazkaAdresowa
 {
 UzytkownikMenedzer uzytkownikMenedzer;
-KontaktMenedzer kontaktMenedzer;
+KontaktMenedzer kontaktMenedzer;//
 
 
 public:

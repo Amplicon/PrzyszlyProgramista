@@ -27,6 +27,7 @@ void KontaktMenedzer::wyswietlWszystkieKontakty()
 
 void KontaktMenedzer::wyswietlDaneKontaktu(Kontakt kontakt)
 {
+
     cout << endl << "Id:                 " << kontakt.pobierzId() << endl;
     cout << "Imie:               " << kontakt.pobierzImie() << endl;
     cout << "Nazwisko:           " << kontakt.pobierzNazwisko() << endl;
@@ -40,6 +41,7 @@ Kontakt KontaktMenedzer::podajDaneNowegoKontaktu()
     Kontakt kontakt;
     string imie, nazwisko, telefon, email, adres;
     kontakt.ustawId( pobierzIdNowegoKontaktu() );
+    kontakt.ustawIdUzytkownika( pobierzIdZalogowanegoUzytkownika());
 
     cout << "Podaj imie: ";
     cin>>imie;
@@ -86,4 +88,9 @@ void KontaktMenedzer::wczytajKontaktyZPliku()
 void KontaktMenedzer::ustawIdZalogowanegoUzytkownika(int id)
 {
     this -> idZalogowanegoUzytkownika = id;
+}
+
+int KontaktMenedzer::pobierzIdZalogowanegoUzytkownika()
+{
+    return idZalogowanegoUzytkownika;
 }

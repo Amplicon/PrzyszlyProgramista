@@ -23,6 +23,7 @@ class KontaktMenedzer
 
 public:
         KontaktMenedzer(string nazwaPlikuZKontaktami):plikKontakty(nazwaPlikuZKontaktami){
+            idZalogowanegoUzytkownika=0;
 //    cialo konstruktora
 };
 void dodajKontakt();
