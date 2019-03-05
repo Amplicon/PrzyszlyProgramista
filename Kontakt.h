@@ -5,6 +5,7 @@ using namespace std;
 
 class Kontakt
 {
+    int idUzytkownika;
     int id;
     string imie;
     string nazwisko;
@@ -13,7 +14,7 @@ class Kontakt
     string email;
 
 public:
-
+    void ustawIdUzytkownika(int idUzytkownika);
     void ustawId(int id);
     void ustawImie(string imie);
     void ustawNazwisko(string nazwisko);
@@ -21,6 +22,7 @@ public:
     void ustawTelefon(string telefon);
     void ustawEmail(string email);
 
+    int pobierzIdUzytkownika();
     int pobierzId();
     string pobierzImie();
     string pobierzNazwisko();

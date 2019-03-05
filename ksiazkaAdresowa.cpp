@@ -35,6 +35,7 @@ void KsiazkaAdresowa::logowanieUzytkownika()
 void KsiazkaAdresowa::wylogujUzytkownika()
 {
     uzytkownikMenedzer.wylogujUzytkownika();
+    kontaktMenedzer.ustawIdZalogowanegoUzytkownika(0);
 }
 
 void KsiazkaAdresowa::zmianaHaslaUzytkownika()
@@ -50,4 +51,11 @@ void KsiazkaAdresowa::dodajKontakt()
 void KsiazkaAdresowa::wyswietlWszytskieKontakty()
 {
     kontaktMenedzer.wyswietlWszystkieKontakty();
+}
+
+void KsiazkaAdresowa::przekazIdUzytkownikaDoMenadzeraKontaktow()
+{
+    int id=0;
+    id = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
+    kontaktMenedzer.ustawIdZalogowanegoUzytkownika(id);
 }

@@ -10,7 +10,7 @@ using namespace std;
 class KsiazkaAdresowa
 {
 UzytkownikMenedzer uzytkownikMenedzer;
-KontaktMenedzer kontaktMenedzer;
+KontaktMenedzer kontaktMenedzer;//
 
 
 public:
@@ -19,6 +19,7 @@ public:
     kontaktMenedzer(nazwaPlikuZKontaktami)
     {
         uzytkownikMenedzer.wczytajUzytkownikowZPliku();
+        kontaktMenedzer.wczytajKontaktyZPliku();
     };
     void rejestracjaUzytkownika();
     void logowanieUzytkownika();
@@ -27,5 +28,6 @@ public:
     void dodajKontakt();
     void wyswietlWszytskieKontakty();
     void zmianaHaslaUzytkownika();
+    void przekazIdUzytkownikaDoMenadzeraKontaktow();
 };
 #endif//KSIAZKAADRESOWA_H
