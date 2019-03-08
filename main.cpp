@@ -14,6 +14,8 @@ int main()
         cout<<"Menu glowne:\n1 - Rejestracja Uzytkownika\n2 - Logowanie\n3 - Wyjscie"<<endl;
         //cout<<"Status: "<<ksiazkaAdresowa.zalogowanyUzytkownik()<<endl;
         cin>> wybor;
+        cin.clear();
+        cin.ignore();
         switch (wybor)
         {
 
@@ -26,7 +28,6 @@ int main()
             ksiazkaAdresowa.logowanieUzytkownika();
             while(ksiazkaAdresowa.zalogowanyUzytkownik()==true)
             {
-                ksiazkaAdresowa.przekazIdUzytkownikaDoMenadzeraKontaktow();
                 ksiazkaAdresowa.dodajKontakt();
                 ksiazkaAdresowa.dodajKontakt();
                 ksiazkaAdresowa.wyswietlWszytskieKontakty();

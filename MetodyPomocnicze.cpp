@@ -18,3 +18,14 @@ string MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst
     return tekst;
 }
 
+string MetodyPomocnicze::wczytajLinie()
+{
+
+    string wejscie ;
+
+    getline(cin,wejscie);
+
+
+    return wejscie;
+
+}

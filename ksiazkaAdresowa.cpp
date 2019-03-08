@@ -5,37 +5,20 @@ void KsiazkaAdresowa::rejestracjaUzytkownika()
     uzytkownikMenedzer.rejestracjaUzytkownika();
 }
 
-bool KsiazkaAdresowa::zalogowanyUzytkownik()
-{
-    bool statusUzytkownika=false;
-
-    if( uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika()>0)
-    {
-        statusUzytkownika=true;
-        return statusUzytkownika;
-    }
-    else if(uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika()==0)
-    {
-        statusUzytkownika=false;
-        return statusUzytkownika;
-    }
-    else
-    {
-        cout<<"Bledne Id Uzytkownika";
-        return statusUzytkownika=false;
-    }
-
-}
-
 void KsiazkaAdresowa::logowanieUzytkownika()
 {
     uzytkownikMenedzer.logowanieUzytkownika();
+    if(uzytkownikMenedzer.zalogowanyUzytkownik()==true)
+    {
+        kontaktMenedzer = new KontaktMenedzer(NAZWA_PLIKU_Z_KONTAKTAMI, uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika());
+    }
 }
 
 void KsiazkaAdresowa::wylogujUzytkownika()
 {
     uzytkownikMenedzer.wylogujUzytkownika();
-    kontaktMenedzer.ustawIdZalogowanegoUzytkownika(0);
+    delete kontaktMenedzer;
+    kontaktMenedzer = NULL;
 }
 
 void KsiazkaAdresowa::zmianaHaslaUzytkownika()
@@ -45,17 +28,17 @@ void KsiazkaAdresowa::zmianaHaslaUzytkownika()
 
 void KsiazkaAdresowa::dodajKontakt()
 {
-    kontaktMenedzer.dodajKontakt();
+    if(uzytkownikMenedzer.zalogowanyUzytkownik()==true)
+    {
+    kontaktMenedzer->dodajKontakt();
+    }
 }
 
 void KsiazkaAdresowa::wyswietlWszytskieKontakty()
 {
-    kontaktMenedzer.wyswietlWszystkieKontakty();
+    kontaktMenedzer->wyswietlWszystkieKontakty();
 }
-
-void KsiazkaAdresowa::przekazIdUzytkownikaDoMenadzeraKontaktow()
+bool KsiazkaAdresowa::zalogowanyUzytkownik()//NARAZIE TO TU ZOSTAWIAM DLA WYGODY OBSLUGI MENU
 {
-    int id=0;
-    id = uzytkownikMenedzer.pobierzIdZalogowanegoUzytkownika();
-    kontaktMenedzer.ustawIdZalogowanegoUzytkownika(id);
+    return uzytkownikMenedzer.zalogowanyUzytkownik();
 }

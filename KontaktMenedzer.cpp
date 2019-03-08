@@ -39,33 +39,30 @@ void KontaktMenedzer::wyswietlDaneKontaktu(Kontakt kontakt)
 Kontakt KontaktMenedzer::podajDaneNowegoKontaktu()
 {
     Kontakt kontakt;
-    string imie, nazwisko, telefon, email, adres;
+    string imie="", nazwisko="", telefon="", email="", adres="";
     kontakt.ustawId( pobierzIdNowegoKontaktu() );
-    kontakt.ustawIdUzytkownika( pobierzIdZalogowanegoUzytkownika());
+    kontakt.ustawIdUzytkownika( ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
-    cin>>imie;
+    imie = MetodyPomocnicze::wczytajLinie();
     imie = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie);
     kontakt.ustawImie(imie);
 
     cout << "Podaj nazwisko: ";
-    cin>>nazwisko;
+    nazwisko= MetodyPomocnicze::wczytajLinie();
     nazwisko = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwisko);
     kontakt.ustawNazwisko(nazwisko);
-    cin.clear();
-    cin.ignore();
-
 
     cout << "Podaj numer telefonu: ";
-    getline (cin,telefon);
+    telefon = MetodyPomocnicze::wczytajLinie();
     kontakt.ustawTelefon(telefon);
 
     cout << "Podaj email: ";
-    getline (cin,email);
+    email = MetodyPomocnicze::wczytajLinie();
     kontakt.ustawEmail(email);
 
     cout << "Podaj adres: ";
-    getline (cin,adres);
+    adres = MetodyPomocnicze::wczytajLinie();
     kontakt.ustawAdres(adres);
 
     return kontakt;
@@ -78,19 +75,4 @@ int KontaktMenedzer::pobierzIdNowegoKontaktu()
         return 1;
     else
         return kontakty.back().pobierzId() + 1;
-}
-
-void KontaktMenedzer::wczytajKontaktyZPliku()
-{
-    kontakty = plikKontakty.wczytajKontaktyZPliku();
-}
-
-void KontaktMenedzer::ustawIdZalogowanegoUzytkownika(int id)
-{
-    this -> idZalogowanegoUzytkownika = id;
-}
-
-int KontaktMenedzer::pobierzIdZalogowanegoUzytkownika()
-{
-    return idZalogowanegoUzytkownika;
 }

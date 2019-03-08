@@ -21,7 +21,7 @@ void PlikKontakty::dopiszKontaktDoPliku(Kontakt kontakt)
     string liniaZDanymiKontaktu = "";
     fstream plikTekstowy;
 
-    plikTekstowy.open(nazwaPlikuZKontaktami.c_str(), ios::app);
+    plikTekstowy.open(NAZWA_PLIKU_Z_KONTAKTAMI.c_str(), ios::app);
 
     if (plikTekstowy.good() == true)
     {
@@ -38,7 +38,7 @@ void PlikKontakty::dopiszKontaktDoPliku(Kontakt kontakt)
         plikTekstowy.close();
     }
     else
-        cout << "Nie udalo sie otworzyc pliku " << nazwaPlikuZKontaktami << " i zapisac w nim danych." << endl;
+        cout << "Nie udalo sie otworzyc pliku " << NAZWA_PLIKU_Z_KONTAKTAMI << " i zapisac w nim danych." << endl;
 }
 
 Kontakt PlikKontakty::pobierzDaneKontaktu(string pojedynczaLiniaDanychKontaktu )
@@ -88,22 +88,25 @@ Kontakt PlikKontakty::pobierzDaneKontaktu(string pojedynczaLiniaDanychKontaktu )
 
 }
 
-vector <Kontakt> PlikKontakty::wczytajKontaktyZPliku()
+vector <Kontakt> PlikKontakty::wczytajKontaktyUzytkownika(int ID_ZALOGOWANEGO_UZYTKOWNIKA)
 {
 
- Kontakt kontakt;;
+ Kontakt kontakt;
     vector <Kontakt> kontakty;
     fstream plikTekstowy;
     string pojedynczaLiniaDanychKontaktu = "";
 
-    plikTekstowy.open(nazwaPlikuZKontaktami.c_str(), ios::in);
+    plikTekstowy.open(NAZWA_PLIKU_Z_KONTAKTAMI.c_str(), ios::in);
 
     if (plikTekstowy.good() == true)
     {
         while (getline(plikTekstowy, pojedynczaLiniaDanychKontaktu))
         {
             kontakt = pobierzDaneKontaktu(pojedynczaLiniaDanychKontaktu);
+            if(kontakt.pobierzIdUzytkownika()==ID_ZALOGOWANEGO_UZYTKOWNIKA)
+            {
             kontakty.push_back(kontakt);
+            }
         }
         plikTekstowy.close();
     }

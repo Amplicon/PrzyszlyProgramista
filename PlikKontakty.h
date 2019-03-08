@@ -14,14 +14,15 @@ using namespace std;
 class PlikKontakty
 {
     fstream plikTekstowy;
-    const string nazwaPlikuZKontaktami;
+    const string NAZWA_PLIKU_Z_KONTAKTAMI;
+
     Kontakt pobierzDaneKontaktu(string pojedynczaLiniaDanychKontaktu);
     string przygotujDaneKontaktuDoZapisania(Kontakt kontakt);
     bool czyPlikJestPusty();
 
 public:
-    PlikKontakty(string NAZWAPLIKUZKONTAKTAMI):nazwaPlikuZKontaktami(NAZWAPLIKUZKONTAKTAMI){};//lista inicjalizacyjna do const nazwaPlikuZUzytkownikami;
-    vector<Kontakt> wczytajKontaktyZPliku();
+    PlikKontakty(string nazwaPlikuZKontaktami):NAZWA_PLIKU_Z_KONTAKTAMI(nazwaPlikuZKontaktami){};//lista inicjalizacyjna do const nazwaPlikuZUzytkownikami;
+    vector<Kontakt> wczytajKontaktyUzytkownika(int ID_ZALOGOWANEGO_UZYTKOWNIKA);
     void dopiszKontaktDoPliku(Kontakt kontakt);
 
 };

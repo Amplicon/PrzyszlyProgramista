@@ -11,9 +11,10 @@ using namespace std;
 
 class KontaktMenedzer
 {
-    int idZalogowanegoUzytkownika;
-    vector<Kontakt> kontakty;
     PlikKontakty plikKontakty;
+    const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
+    vector<Kontakt> kontakty;
+
 
     void wyswietlDaneKontaktu(Kontakt kontakt);
     int pobierzIdNowegoKontaktu();
@@ -21,15 +22,13 @@ class KontaktMenedzer
 
 
 public:
-    KontaktMenedzer(string nazwaPlikuZKontaktami):plikKontakty(nazwaPlikuZKontaktami)
+    KontaktMenedzer(string nazwaPlikuZKontaktami, int idZalogowanegoUzytkownika)
+    :plikKontakty(nazwaPlikuZKontaktami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika)
     {
-        idZalogowanegoUzytkownika=0;
+        kontakty = plikKontakty.wczytajKontaktyUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
     };
     void dodajKontakt();
     void wyswietlWszystkieKontakty();
-    void wczytajKontaktyZPliku();
-    int pobierzIdZalogowanegoUzytkownika();
-    void ustawIdZalogowanegoUzytkownika(int id);
 
 };
 
