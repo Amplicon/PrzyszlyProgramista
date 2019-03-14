@@ -42,3 +42,166 @@ bool KsiazkaAdresowa::zalogowanyUzytkownik()//NARAZIE TO TU ZOSTAWIAM DLA WYGODY
 {
     return uzytkownikMenedzer.zalogowanyUzytkownik();
 }
+
+
+char KsiazkaAdresowa::menuGlowne()
+{
+
+    char wybor = ' ';
+
+    for(;;)
+    {
+        system("cls");
+        cout<<"[======================================================]\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                    KSIAZKA ADRESOWA                  |\n";
+        cout<<"|                                                      |\n";
+        cout<<"[==========================+++=========================]\n";
+        cout<<"|                                                      |\n";
+        cout<<"|1>             Wyswietl wszystkie pozycje            <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|2>             Wyszukaj                              <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|3>             Dodaj pozycje                         <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|4>             Modyfikuj pozycje                     <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|5>             Zmien haslo                           <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|6>             Wyloguj                               <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"[==========================\\ /=========================]\n";
+        cout<<"                            ";
+
+        wybor = MetodyPomocnicze::wczytajZnak();
+
+        if (wybor!='1'&&wybor!='2'&&wybor!='3'&&wybor!='4'&&wybor!='5'&&wybor!='6')
+        {
+            system("cls");
+            cout<<"[======================================================]\n";
+            cout<<"|                                                      |\n";
+            cout<<"|               Podaj 1, 2, 3, 4, 5 lub 6              |\n";
+            cout<<"|                                                      |\n";
+            cout<<"[==========================+++=========================]\n";
+            cout<<"                            ";
+
+            Sleep(1000);
+            system("cls");
+        }
+
+        else
+        {
+            return wybor;
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
+char KsiazkaAdresowa::menuLogowania()
+{
+    char wybor = ' ';
+
+    for(;;)
+    {
+
+        system("cls");
+        cout<<"[======================================================]\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                    KSIAZKA ADRESOWA                  |\n";
+        cout<<"|                                                      |\n";
+        cout<<"[==========================+++=========================]\n";
+        cout<<"|                                                      |\n";
+        cout<<"|1>             Rejestracja                           <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|2>             Zaloguj...                            <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|3>             Wyjscie z programu                    <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"[==========================\\ /=========================]\n";
+        cout<<"                            ";
+
+        wybor = MetodyPomocnicze::wczytajZnak();
+
+        if (wybor!='1'&&wybor!='2'&&wybor!='3')
+        {
+            system("cls");
+            cout<<"[======================================================]\n";
+            cout<<"|                                                      |\n";
+            cout<<"|                     Podaj 1, 2, 3                    |\n";
+            cout<<"|                                                      |\n";
+            cout<<"[==========================+++=========================]\n";
+            cout<<"                            ";
+
+            Sleep(1000);
+            system("cls");
+        }
+
+        else
+        {
+            return wybor;
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
+char KsiazkaAdresowa::menuWyszukiwania()
+{
+
+    char wybor = ' ';
+
+    for(;;)
+    {
+
+        system("cls");
+
+        cout<<"[======================================================]\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                        SZUKAJ:                       |\n";
+        cout<<"|                                                      |\n";
+        cout<<"[==========================/ \\=========================]\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|1>                      NAZWISKO                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|2>                      IMIE                          |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"[==========================\\ /=========================]\n";
+        cout<<"                            ";
+
+        wybor = MetodyPomocnicze::wczytajZnak();
+
+        if (wybor!='1'&&wybor!='2')
+        {
+            system("cls");
+            cout<<"[======================================================]\n";
+            cout<<"|                                                      |\n";
+            cout<<"|                     Podaj 1 lub 2                    |\n";
+            cout<<"|                                                      |\n";
+            cout<<"[==========================+++=========================]\n";
+            cout<<"                            ";
+
+            Sleep(1000);
+            system("cls");
+        }
+
+        else
+        {
+            return wybor;
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////////
+char KsiazkaAdresowa::menuEdycji()
+{
+    char wybor = ' ';
+  //todo
+    return wybor;
+
+}
