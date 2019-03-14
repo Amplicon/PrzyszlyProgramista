@@ -202,79 +202,83 @@ void KsiazkaAdresowa::menuEdycji()
 {
     char wybor = ' ';
     int idKontaktu = 0;
-    system("cls");
-    cout<<"Podaj numer kontaktu do edycji: ";
-    idKontaktu = MetodyPomocnicze::wczytajLiczbe();
+
     for(;;)
     {
-        if(idKontaktu!=0)
-        {
 
+        system("cls");
+        cout<<"[======================================================]\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                        EDYTUJ:                       |\n";
+        cout<<"|                                                      |\n";
+        cout<<"[==========================+++=========================]\n";
+        cout<<"|                                                      |\n";
+        cout<<"|1>             IMIE                                  <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|2>             NAZWISKO                              <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|3>             NUMER TELEFONU                        <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|4>             ADRES                                 <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|5>             E-MAIL                                <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|6>             USUN POZYCJE                          <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"|                                                      |\n";
+        cout<<"|7>             <<< Wroc...                           <|\n";
+        cout<<"|                                                      |\n";
+        cout<<"[==========================\\ /=========================]\n";
+        cout<<"                            ";
+
+        wybor = MetodyPomocnicze::wczytajZnak();
+
+        if (wybor=='7')
+            return;
+
+        else if (wybor!='1'&&wybor!='2'&&wybor!='3'&&wybor!='4'&&wybor!='5'&&wybor!='6'&&wybor!='7')
+        {
             system("cls");
             cout<<"[======================================================]\n";
             cout<<"|                                                      |\n";
-            cout<<"|                        EDYTUJ:                       |\n";
+            cout<<"|             Podaj 1, 2, 3, 4, 5, 6 lub 7             |\n";
             cout<<"|                                                      |\n";
             cout<<"[==========================+++=========================]\n";
-            cout<<"|                                                      |\n";
-            cout<<"|1>             IMIE                                  <|\n";
-            cout<<"|                                                      |\n";
-            cout<<"|                                                      |\n";
-            cout<<"|2>             NAZWISKO                              <|\n";
-            cout<<"|                                                      |\n";
-            cout<<"|                                                      |\n";
-            cout<<"|3>             ADRES                                 <|\n";
-            cout<<"|                                                      |\n";
-            cout<<"|                                                      |\n";
-            cout<<"|4>             NUMER TELEFONU                        <|\n";
-            cout<<"|                                                      |\n";
-            cout<<"|                                                      |\n";
-            cout<<"|5>             E-MAIL                                <|\n";
-            cout<<"|                                                      |\n";
-            cout<<"|                                                      |\n";
-            cout<<"|6>             USUN POZYCJE                          <|\n";
-            cout<<"|                                                      |\n";
-            cout<<"|                                                      |\n";
-            cout<<"|7>             <<< Wroc...                           <|\n";
-            cout<<"|                                                      |\n";
-            cout<<"[==========================\\ /=========================]\n";
             cout<<"                            ";
 
-            wybor = MetodyPomocnicze::wczytajZnak();
-
-            if (wybor=='7')
-                return;
-
-            else if (wybor!='1'&&wybor!='2'&&wybor!='3'&&wybor!='4'&&wybor!='5'&&wybor!='6'&&wybor!='7')
-            {
-                system("cls");
-                cout<<"[======================================================]\n";
-                cout<<"|                                                      |\n";
-                cout<<"|             Podaj 1, 2, 3, 4, 5, 6 lub 7             |\n";
-                cout<<"|                                                      |\n";
-                cout<<"[==========================+++=========================]\n";
-                cout<<"                            ";
-
-                Sleep(1000);
-                system("cls");
-            }
-
-            else
-            {
-                //kontaktMenedzer->edytujKontakt(idKontaktu, wybor);
-                return;
-            }
+            Sleep(1000);
 
         }
 
         else
         {
+            system("cls");
+            cout<<"Podaj numer kontaktu do edycji: ";
+            idKontaktu = MetodyPomocnicze::wczytajLiczbe();
 
-            cout<<"NIEPARWIDLOWY NUMER KONTAKTU !!!";
-            Sleep(1000);
+            if(idKontaktu!=0)
+            {
+                kontaktMenedzer->edytujKontakt(idKontaktu, wybor);
+                return;
+            }
+            else
+            {
+                system("cls");
+                cout<<"NIEPARWIDLOWY NUMER KONTAKTU !!!";
+                Sleep(1000);
+                return;
+            }
 
-            return;
 
         }
+
+
     }
+
+
 }

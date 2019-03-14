@@ -24,6 +24,8 @@ public:
     PlikKontakty(string nazwaPlikuZKontaktami):NAZWA_PLIKU_Z_KONTAKTAMI(nazwaPlikuZKontaktami){};//lista inicjalizacyjna do const nazwaPlikuZUzytkownikami;
     vector<Kontakt> wczytajKontaktyUzytkownika(int ID_ZALOGOWANEGO_UZYTKOWNIKA);
     void dopiszKontaktDoPliku(Kontakt kontakt);
+    void aktualizujPlikKontakty(Kontakt kontakt);
+
 
 };
 

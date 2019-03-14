@@ -76,3 +76,65 @@ int KontaktMenedzer::pobierzIdNowegoKontaktu()
     else
         return kontakty.back().pobierzId() + 1;
 }
+
+void KontaktMenedzer::edytujKontakt(int idKontaktu, char wybor)
+{
+    system("cls");
+    for(unsigned i=0; i<kontakty.size(); i++)
+    {
+        if(kontakty[i].pobierzId()==idKontaktu)
+        {
+            switch(wybor)
+            {
+            case '1':
+
+                cout<<"WPROWADZ IMIE: ";
+
+                kontakty[i].ustawImie(MetodyPomocnicze::wczytajLinie());
+
+                break;
+
+            case '2':
+
+                cout<<"WPROWADZ NAZWISKO: ";
+
+                kontakty[i].ustawNazwisko(MetodyPomocnicze::wczytajLinie());
+                break;
+
+            case '3':
+
+                cout<<"WPROWADZ NUMER TELEFONU: ";
+
+                kontakty[i].ustawTelefon(MetodyPomocnicze::wczytajLinie());
+                break;
+
+            case '4':
+
+                cout<<"WPROWADZ ADRES: ";
+
+                kontakty[i].ustawAdres(MetodyPomocnicze::wczytajLinie());
+                break;
+
+            case '5':
+
+                cout<<"WPROWADZ E-MAIL: ";
+
+                kontakty[i].ustawEmail(MetodyPomocnicze::wczytajLinie());
+                break;
+
+            case '6':
+
+                //usunKontakt(idKontaktu); plikKontakty.usunKontaktZPliku();
+
+                return;;
+
+            }
+            plikKontakty.aktualizujPlikKontakty(kontakty[i]);
+            return;
+        }
+    }
+    cout<<"Nie znaleziono Kontaktu o podanym ID ("<<idKontaktu<<") !"<<endl;
+    Sleep(1000);
+    return;
+
+}

@@ -41,6 +41,16 @@ void PlikKontakty::dopiszKontaktDoPliku(Kontakt kontakt)
         cout << "Nie udalo sie otworzyc pliku " << NAZWA_PLIKU_Z_KONTAKTAMI << " i zapisac w nim danych." << endl;
 }
 
+void PlikKontakty::aktualizujPlikKontakty(Kontakt kontakt)
+{
+
+//praca praca
+//fffffffffff
+//znajdz linie i zamien
+
+}
+
+
 Kontakt PlikKontakty::pobierzDaneKontaktu(string pojedynczaLiniaDanychKontaktu )
 {
 
