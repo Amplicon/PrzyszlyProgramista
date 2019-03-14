@@ -39,3 +39,12 @@ char MetodyPomocnicze::wczytajZnak()
     return wejscie;
 
 }
+
+int MetodyPomocnicze::wczytajLiczbe()
+{
+    int wejscie;
+    cin>>wejscie;
+    cin.clear();
+    cin.ignore(numeric_limits<char>::max(),'\n'); //ignores EVERYTHING in input buffer up to newline character
+    return wejscie;
+}

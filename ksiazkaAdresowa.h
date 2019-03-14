@@ -38,6 +38,6 @@ public:
     char menuGlowne();
     char menuLogowania();
     char menuWyszukiwania();
-    char menuEdycji();
+    void menuEdycji();
 };
 #endif//KSIAZKAADRESOWA_H

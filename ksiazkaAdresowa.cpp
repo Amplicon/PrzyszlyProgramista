@@ -30,7 +30,7 @@ void KsiazkaAdresowa::dodajKontakt()
 {
     if(uzytkownikMenedzer.zalogowanyUzytkownik()==true)
     {
-    kontaktMenedzer->dodajKontakt();
+        kontaktMenedzer->dodajKontakt();
     }
 }
 
@@ -118,7 +118,7 @@ char KsiazkaAdresowa::menuLogowania()
         cout<<"|1>             Rejestracja                           <|\n";
         cout<<"|                                                      |\n";
         cout<<"|                                                      |\n";
-        cout<<"|2>             Zaloguj...                            <|\n";
+        cout<<"|2>             >>> Zaloguj...                        <|\n";
         cout<<"|                                                      |\n";
         cout<<"|                                                      |\n";
         cout<<"|3>             Wyjscie z programu                    <|\n";
@@ -198,10 +198,83 @@ char KsiazkaAdresowa::menuWyszukiwania()
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
-char KsiazkaAdresowa::menuEdycji()
+void KsiazkaAdresowa::menuEdycji()
 {
     char wybor = ' ';
-  //todo
-    return wybor;
+    int idKontaktu = 0;
+    system("cls");
+    cout<<"Podaj numer kontaktu do edycji: ";
+    idKontaktu = MetodyPomocnicze::wczytajLiczbe();
+    for(;;)
+    {
+        if(idKontaktu!=0)
+        {
 
+            system("cls");
+            cout<<"[======================================================]\n";
+            cout<<"|                                                      |\n";
+            cout<<"|                        EDYTUJ:                       |\n";
+            cout<<"|                                                      |\n";
+            cout<<"[==========================+++=========================]\n";
+            cout<<"|                                                      |\n";
+            cout<<"|1>             IMIE                                  <|\n";
+            cout<<"|                                                      |\n";
+            cout<<"|                                                      |\n";
+            cout<<"|2>             NAZWISKO                              <|\n";
+            cout<<"|                                                      |\n";
+            cout<<"|                                                      |\n";
+            cout<<"|3>             ADRES                                 <|\n";
+            cout<<"|                                                      |\n";
+            cout<<"|                                                      |\n";
+            cout<<"|4>             NUMER TELEFONU                        <|\n";
+            cout<<"|                                                      |\n";
+            cout<<"|                                                      |\n";
+            cout<<"|5>             E-MAIL                                <|\n";
+            cout<<"|                                                      |\n";
+            cout<<"|                                                      |\n";
+            cout<<"|6>             USUN POZYCJE                          <|\n";
+            cout<<"|                                                      |\n";
+            cout<<"|                                                      |\n";
+            cout<<"|7>             <<< Wroc...                           <|\n";
+            cout<<"|                                                      |\n";
+            cout<<"[==========================\\ /=========================]\n";
+            cout<<"                            ";
+
+            wybor = MetodyPomocnicze::wczytajZnak();
+
+            if (wybor=='7')
+                return;
+
+            else if (wybor!='1'&&wybor!='2'&&wybor!='3'&&wybor!='4'&&wybor!='5'&&wybor!='6'&&wybor!='7')
+            {
+                system("cls");
+                cout<<"[======================================================]\n";
+                cout<<"|                                                      |\n";
+                cout<<"|             Podaj 1, 2, 3, 4, 5, 6 lub 7             |\n";
+                cout<<"|                                                      |\n";
+                cout<<"[==========================+++=========================]\n";
+                cout<<"                            ";
+
+                Sleep(1000);
+                system("cls");
+            }
+
+            else
+            {
+                //kontaktMenedzer->edytujKontakt(idKontaktu, wybor);
+                return;
+            }
+
+        }
+
+        else
+        {
+
+            cout<<"NIEPARWIDLOWY NUMER KONTAKTU !!!";
+            Sleep(1000);
+
+            return;
+
+        }
+    }
 }
