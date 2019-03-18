@@ -43,26 +43,65 @@ void PlikKontakty::dopiszKontaktDoPliku(Kontakt kontakt)
 
 void PlikKontakty::aktualizujPlikKontakty(Kontakt kontakt)
 {
+    string liniaZDanymiKontaktu = "";
+    fstream plikTekstowy, tymczasowyPlikTekstowy;
 
-//praca praca
-//fffffffffff
-//znajdz linie i zamien
+    plikTekstowy.open(NAZWA_PLIKU_Z_KONTAKTAMI.c_str(), ios::in);
+    if (plikTekstowy.good() == true)
+    {
+        if (czyPlikJestPusty() == true)
+        {
+            cout<<"Uwaga! Plik jest pusty, nie ma czego edytowac!";
+        }
+        else
+        {
 
+            tymczasowyPlikTekstowy.open((NAZWA_PLIKU_Z_KONTAKTAMI+".TMP").c_str(), ios::app);
+            while(getline(plikTekstowy, liniaZDanymiKontaktu) )
+            {
+                if(pobierzIdKontaktuZLinii(liniaZDanymiKontaktu)==kontakt.pobierzId()//tu lezy problem!
+                   &&pobierzIdUzytkownikaZLinii(liniaZDanymiKontaktu)==kontakt.pobierzIdUzytkownika())
+                {
+                    liniaZDanymiKontaktu=przygotujDaneKontaktuDoZapisania(kontakt);
+                    tymczasowyPlikTekstowy<<endl<<liniaZDanymiKontaktu;
+                }
+                else
+                {
+                    tymczasowyPlikTekstowy<<endl<<liniaZDanymiKontaktu;
+                }
+            }
+            tymczasowyPlikTekstowy.close();
+        }
+    }
+    else
+    {
+        cout << "Nie udalo sie otworzyc pliku " << NAZWA_PLIKU_Z_KONTAKTAMI << " i zapisac w nim danych." << endl;
+        plikTekstowy.close();
+        return;
+    }
+    plikTekstowy.close();
+    usunPlik(NAZWA_PLIKU_Z_KONTAKTAMI);
+    zmienNazwePliku((NAZWA_PLIKU_Z_KONTAKTAMI+".TMP").c_str(),NAZWA_PLIKU_Z_KONTAKTAMI);
 }
 
+void PlikKontakty::usunKontaktZPliku()
+{
+    //
+//    KontaktMenedzer::
+}
 
-Kontakt PlikKontakty::pobierzDaneKontaktu(string pojedynczaLiniaDanychKontaktu )
+Kontakt PlikKontakty::pobierzDaneKontaktu(string liniaZDanymiKontaktu )
 {
 
     Kontakt kontakt;
     string pojedynczaDanaKontaktu = "";
     int numerPojedynczejDanejKontaktu = 1;
 
-    for (unsigned pozycjaZnaku = 0; pozycjaZnaku < pojedynczaLiniaDanychKontaktu.length(); pozycjaZnaku++)
+    for (unsigned pozycjaZnaku = 0; pozycjaZnaku < liniaZDanymiKontaktu.length(); pozycjaZnaku++)
     {
-        if (pojedynczaLiniaDanychKontaktu[pozycjaZnaku] != '|')
+        if (liniaZDanymiKontaktu[pozycjaZnaku] != '|')
         {
-            pojedynczaDanaKontaktu += pojedynczaLiniaDanychKontaktu[pozycjaZnaku];
+            pojedynczaDanaKontaktu += liniaZDanymiKontaktu[pozycjaZnaku];
         }
         else
         {
@@ -132,3 +171,33 @@ bool PlikKontakty::czyPlikJestPusty()//here
     else
         return false;
 }
+
+int PlikKontakty::pobierzIdUzytkownikaZLinii(string liniaZDanymiKontaktu)
+{
+    int pozycjaRozpoczeciaIdUzytkownika = liniaZDanymiKontaktu.find_first_of('|') + 1;
+    int idUzytkownika = MetodyPomocnicze::konwersjaStringNaInt(MetodyPomocnicze::pobierzLiczbe(liniaZDanymiKontaktu, pozycjaRozpoczeciaIdUzytkownika));
+
+    return idUzytkownika;
+}
+
+int PlikKontakty::pobierzIdKontaktuZLinii(string liniaZDanymiKontaktu)
+{
+    int pozycjaRozpoczeciaIdKontaktu = 0;
+    int idKontaktu = MetodyPomocnicze::konwersjaStringNaInt(MetodyPomocnicze::pobierzLiczbe(liniaZDanymiKontaktu, pozycjaRozpoczeciaIdKontaktu));
+    return idKontaktu;
+}
+
+void PlikKontakty::usunPlik(string nazwaPliku)
+{
+    if (remove(nazwaPliku.c_str()) == 0) {}
+    else
+        cout << "Nie udalo sie usunac pliku " << nazwaPliku << endl;
+}
+
+void PlikKontakty::zmienNazwePliku(string nazwaPliku, string nowaNazwaPliku)
+{
+    if (rename(nazwaPliku.c_str(), nowaNazwaPliku.c_str()) == 0) {}
+    else
+        cout << "Nazwa pliku nie zostala zmieniona." << nowaNazwaPliku << endl;
+}
+

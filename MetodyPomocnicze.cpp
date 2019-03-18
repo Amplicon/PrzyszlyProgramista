@@ -48,3 +48,22 @@ int MetodyPomocnicze::wczytajLiczbe()
     cin.ignore(numeric_limits<char>::max(),'\n'); //ignores EVERYTHING in input buffer up to newline character
     return wejscie;
 }
+
+int MetodyPomocnicze::konwersjaStringNaInt(string linia)
+{
+    int liczbaInt;
+    istringstream iss(linia);
+    iss >> liczbaInt;
+
+    return liczbaInt;
+}
+string MetodyPomocnicze::pobierzLiczbe(string linia, int pozycjaZnaku)
+{
+    string liczba = "";
+    while(isdigit(linia[pozycjaZnaku]) == true)
+    {
+        liczba += linia[pozycjaZnaku];
+        pozycjaZnaku ++;
+    }
+    return liczba;
+}
