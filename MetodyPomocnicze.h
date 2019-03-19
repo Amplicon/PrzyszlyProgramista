@@ -3,16 +3,21 @@
 #include <iostream>
 #include <sstream>
 #include <algorithm>
+#include <limits>
 
 using namespace std;
 
 class MetodyPomocnicze
 {
 public:
-    static string konwerjsaIntNaString(int liczba);
-    static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
-    static string wczytajLinie();
 
+    static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
+    static string konwerjsaIntNaString(int liczba);
+    static int konwersjaStringNaInt(string linia);
+    static string pobierzLiczbe(string linia, int pozycjaZnaku);
+    static string wczytajLinie();
+    static char wczytajZnak();
+    static int wczytajLiczbe();
 
 
 };

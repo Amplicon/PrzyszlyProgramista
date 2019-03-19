@@ -35,6 +35,7 @@ int UzytkownikMenedzer::pobierzIdNowegoUzytkownika()
 {
     if (uzytkownicy.empty() == true)
         return 1;
+
     else
         return uzytkownicy.back().pobierzId() + 1;
 }
@@ -70,7 +71,7 @@ void UzytkownikMenedzer::logowanieUzytkownika()
     cout << endl << "Podaj login: ";
     login = MetodyPomocnicze::wczytajLinie();
 
-    for (unsigned i=0; i<uzytkownicy.size();i++)
+    for (unsigned i=0; i<uzytkownicy.size(); i++)
     {
         if (uzytkownicy[i].pobierzLogin() == login)
         {
@@ -130,7 +131,7 @@ void UzytkownikMenedzer::zmianaHaslaUzytkownika()
     cout << "Podaj nowe haslo: ";
     noweHaslo = MetodyPomocnicze::wczytajLinie();
 
-    for (unsigned i=0;i<uzytkownicy.size();i++)
+    for (unsigned i=0; i<uzytkownicy.size(); i++)
     {
         if (uzytkownicy[i].pobierzId() == idZalogowanegoUzytkownika)
         {

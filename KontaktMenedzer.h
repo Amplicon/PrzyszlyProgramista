@@ -28,6 +28,8 @@ public:
         kontakty = plikKontakty.wczytajKontaktyUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
     };
     void dodajKontakt();
+    void edytujKontakt(int idKontaktu, char wybor);
+    void usunKontakt(int idKontaktu);
     void wyswietlWszystkieKontakty();
 
 };

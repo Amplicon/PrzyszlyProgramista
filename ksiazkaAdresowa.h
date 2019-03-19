@@ -14,6 +14,8 @@ class KsiazkaAdresowa
     const string NAZWA_PLIKU_Z_KONTAKTAMI;
 
 
+
+
 public:
     KsiazkaAdresowa(string nazwaPlikuZUzytkownikami, string nazwaPlikuZKontaktami)
         :uzytkownikMenedzer(nazwaPlikuZUzytkownikami),NAZWA_PLIKU_Z_KONTAKTAMI(nazwaPlikuZKontaktami)
@@ -25,6 +27,7 @@ public:
         delete kontaktMenedzer;
         kontaktMenedzer=NULL;
     };
+
     void rejestracjaUzytkownika();
     void logowanieUzytkownika();
     bool zalogowanyUzytkownik();//odpytuje menedzera czy uzytkownik jest zalogowany id=0 ==NIE zalogowany
@@ -32,5 +35,9 @@ public:
     void dodajKontakt();
     void wyswietlWszytskieKontakty();
     void zmianaHaslaUzytkownika();
+    char menuGlowne();
+    char menuLogowania();
+    char menuWyszukiwania();
+    void menuEdycji();
 };
 #endif//KSIAZKAADRESOWA_H

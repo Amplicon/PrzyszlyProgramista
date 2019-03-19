@@ -7,7 +7,7 @@
       <x>352</x>
       <y>8</y>
       <w>256</w>
-      <h>200</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>KsiazkaAdresowa
 --
@@ -24,7 +24,10 @@
 + wyswietlWszytskieKontakty(): void
 + zalogowanyUzytkownik(): bool
 + zmianaHaslaUzytkownika(): void
-</panel_attributes>
++ menuGlowne(): char 
++ menuLogowania(): char 
++ menuWyszukiwania(): char 
++ menuEdycji(): void </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -38,7 +41,7 @@
     <panel_attributes>UzytkownikMenedzer
 --
 - uzytkownicy: vector &lt;Uzytkownik&gt;
-- idZalogowanegoUzytkownika: integer
+- idZalogowanegoUzytkownika: int
 --
 + UzytkownikMenedzer()
 + rejestracjaUzytkownika(): void
@@ -46,10 +49,10 @@
 + zmianaHaslaUzytkownika(): void 
 + wylogujUzytkownika(): void
 + wczytajUzytkownikowZPliku(): void
-+ pobierzIdZalogowanegoUzytkownika(): integer
++ pobierzIdZalogowanegoUzytkownika(): int
 + zalogowanyUzytkownik(): bool
 - podajDaneNowegoUzytkownika(): Uzytkownik
-- pobierzIdNowegoUzytkownika(): integer
+- pobierzIdNowegoUzytkownika(): int
 - czyIstniejeLogin(): bool
 
 </panel_attributes>
@@ -65,7 +68,7 @@
     </coordinates>
     <panel_attributes>Uzytkownik
 --
-- id: integer
+- id: int
 - login: string
 - haslo: string</panel_attributes>
     <additional_attributes/>
@@ -76,7 +79,7 @@
       <x>0</x>
       <y>424</y>
       <w>296</w>
-      <h>160</h>
+      <h>208</h>
     </coordinates>
     <panel_attributes>PlikZUzytkownikami
 --
@@ -97,16 +100,19 @@
     <id>UMLClass</id>
     <coordinates>
       <x>328</x>
-      <y>456</y>
+      <y>424</y>
       <w>304</w>
-      <h>64</h>
+      <h>208</h>
     </coordinates>
     <panel_attributes>MetodyPomocnicze
 --
 + konwerjsaIntNaString(): string
 + zamienPierwszaLitereNaDuzaAPozostaleNaMale(): string
++ konwersjaStringNaInt(string linia): int
++ pobierzLiczbe(): string
 + wczytajLinie(): string
-</panel_attributes>
++ wczytajZnak(): char
++ wczytajLiczbe(): int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -115,7 +121,7 @@
       <x>664</x>
       <y>424</y>
       <w>296</w>
-      <h>160</h>
+      <h>208</h>
     </coordinates>
     <panel_attributes>PlikKontakty
 --
@@ -125,9 +131,15 @@
 + PlikKontakty()
 + dopiszKontaktDoPliku(): void
 + wczytajKontaktyZPliku(): vector&lt;Kontakt&gt;
++ aktualizujPlikKontakty(): void
++ usunKontaktZPliku(): void
 - czyPlikJestPusty(): bool
 - przygotujDaneKontaktuDoZapisania(): string
-- pobierzDaneKontaktu(): Kontakt</panel_attributes>
+- pobierzDaneKontaktu(): Kontakt
+- pobierzIdUzytkownikaZLinii(): int
+- pobierzIdKontaktuZLinii(): int
+- zmienNazwePliku(): void
+- usunPlik(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -165,6 +177,8 @@
 -- 
 + KontaktMenedzer()
 + dodajKontakt(): void
++ usunKontakt(): void
++ edytujKontakt(): void
 + wyswietlWszystkieKontakty(): void
 - podajDaneNowegoKontaktu(): Kontakt
 - pobierzIdNowegoKontaktu(): int
