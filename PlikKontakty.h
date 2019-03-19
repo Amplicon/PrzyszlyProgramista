@@ -30,7 +30,7 @@ public:
     vector<Kontakt> wczytajKontaktyUzytkownika(int ID_ZALOGOWANEGO_UZYTKOWNIKA);
     void dopiszKontaktDoPliku(Kontakt kontakt);
     void aktualizujPlikKontakty(Kontakt kontakt);
-    void usunKontaktZPliku();
+    void usunKontaktZPliku(int idUsuwanegoKontaktu, int idUzytkownika);
 
 
 };

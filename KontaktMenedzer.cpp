@@ -18,12 +18,8 @@ void KontaktMenedzer::wyswietlWszystkieKontakty()
     for(unsigned i=0; i<kontakty.size(); i++)
     {
         wyswietlDaneKontaktu(kontakty[i]);
-
-
     }
 }
-
-
 
 void KontaktMenedzer::wyswietlDaneKontaktu(Kontakt kontakt)
 {
@@ -76,6 +72,22 @@ int KontaktMenedzer::pobierzIdNowegoKontaktu()
     else
         return kontakty.back().pobierzId() + 1;
 }
+void KontaktMenedzer::usunKontakt(int idKontaktu)
+{
+    for(unsigned i=0; i<kontakty.size(); i++)
+    {
+        if(kontakty[i].pobierzId()==idKontaktu)
+        {
+            kontakty.erase(kontakty.begin()+i);
+            plikKontakty.usunKontaktZPliku(idKontaktu, ID_ZALOGOWANEGO_UZYTKOWNIKA);
+            return;
+        }
+    }
+    system("cls");
+    cout<<"Nie znaleziono kontaktu o podanym ID!";
+    Sleep(1000);
+    return;
+}
 
 void KontaktMenedzer::edytujKontakt(int idKontaktu, char wybor)
 {
@@ -124,8 +136,7 @@ void KontaktMenedzer::edytujKontakt(int idKontaktu, char wybor)
 
             case '6':
 
-                //usunKontakt(idKontaktu); plikKontakty.usunKontaktZPliku();
-
+                usunKontakt(idKontaktu);
                 return;;
 
             }
