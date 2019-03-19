@@ -79,7 +79,7 @@
       <x>0</x>
       <y>424</y>
       <w>296</w>
-      <h>160</h>
+      <h>208</h>
     </coordinates>
     <panel_attributes>PlikZUzytkownikami
 --
@@ -100,14 +100,16 @@
     <id>UMLClass</id>
     <coordinates>
       <x>328</x>
-      <y>456</y>
+      <y>424</y>
       <w>304</w>
-      <h>88</h>
+      <h>208</h>
     </coordinates>
     <panel_attributes>MetodyPomocnicze
 --
 + konwerjsaIntNaString(): string
 + zamienPierwszaLitereNaDuzaAPozostaleNaMale(): string
++ konwersjaStringNaInt(string linia): int
++ pobierzLiczbe(): string
 + wczytajLinie(): string
 + wczytajZnak(): char
 + wczytajLiczbe(): int</panel_attributes>
@@ -119,7 +121,7 @@
       <x>664</x>
       <y>424</y>
       <w>296</w>
-      <h>160</h>
+      <h>208</h>
     </coordinates>
     <panel_attributes>PlikKontakty
 --
@@ -129,9 +131,15 @@
 + PlikKontakty()
 + dopiszKontaktDoPliku(): void
 + wczytajKontaktyZPliku(): vector&lt;Kontakt&gt;
++ aktualizujPlikKontakty(): void
++ usunKontaktZPliku(): void
 - czyPlikJestPusty(): bool
 - przygotujDaneKontaktuDoZapisania(): string
-- pobierzDaneKontaktu(): Kontakt</panel_attributes>
+- pobierzDaneKontaktu(): Kontakt
+- pobierzIdUzytkownikaZLinii(): int
+- pobierzIdKontaktuZLinii(): int
+- zmienNazwePliku(): void
+- usunPlik(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -169,6 +177,8 @@
 -- 
 + KontaktMenedzer()
 + dodajKontakt(): void
++ usunKontakt(): void
++ edytujKontakt(): void
 + wyswietlWszystkieKontakty(): void
 - podajDaneNowegoKontaktu(): Kontakt
 - pobierzIdNowegoKontaktu(): int
