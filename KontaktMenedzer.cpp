@@ -15,6 +15,7 @@ void KontaktMenedzer::dodajKontakt()
 }
 void KontaktMenedzer::wyswietlWszystkieKontakty()
 {
+    system("cls");
     for(unsigned i=0; i<kontakty.size(); i++)
     {
         wyswietlDaneKontaktu(kontakty[i]);

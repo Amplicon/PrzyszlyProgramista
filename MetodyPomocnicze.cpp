@@ -42,11 +42,18 @@ char MetodyPomocnicze::wczytajZnak()
 
 int MetodyPomocnicze::wczytajLiczbe()
 {
-    int wejscie;
-    cin>>wejscie;
-    cin.clear();
-    cin.ignore(numeric_limits<char>::max(),'\n'); //ignores EVERYTHING in input buffer up to newline character
-    return wejscie;
+    string wejscie = "";
+    int liczba = 0;
+
+    while (true)
+    {
+        getline(cin, wejscie);
+        stringstream myStream(wejscie);
+        if (myStream >> liczba)
+            break;
+        cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+    }
+return liczba;
 }
 
 int MetodyPomocnicze::konwersjaStringNaInt(string linia)
