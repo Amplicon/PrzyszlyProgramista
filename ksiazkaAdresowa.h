@@ -37,7 +37,7 @@ public:
     void zmianaHaslaUzytkownika();
     char menuGlowne();
     char menuLogowania();
-    char menuWyszukiwania();
+    void menuWyszukiwania();
     void menuEdycji();
 };
 #endif//KSIAZKAADRESOWA_H

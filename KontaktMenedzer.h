@@ -16,9 +16,9 @@ class KontaktMenedzer
     vector<Kontakt> kontakty;
 
 
-    void wyswietlDaneKontaktu(Kontakt kontakt);
     int pobierzIdNowegoKontaktu();
     Kontakt podajDaneNowegoKontaktu();
+    void wyswietlDaneKontaktu(Kontakt kontakt);
 
 
 public:
@@ -31,6 +31,8 @@ public:
     void edytujKontakt(int idKontaktu, char wybor);
     void usunKontakt(int idKontaktu);
     void wyswietlWszystkieKontakty();
+    void wyszukajImie(string imie);
+    void wyszukajNazwisko(string nazwisko);
 
 };
 
