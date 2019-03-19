@@ -149,7 +149,7 @@ char KsiazkaAdresowa::menuLogowania()
     }
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
-char KsiazkaAdresowa::menuWyszukiwania()
+void KsiazkaAdresowa::menuWyszukiwania()
 {
 
     char wybor = ' ';
@@ -191,9 +191,21 @@ char KsiazkaAdresowa::menuWyszukiwania()
             system("cls");
         }
 
-        else
+        else if (wybor=='1')
         {
-            return wybor;
+            system("cls");
+            cout<<"Podaj NAZWISKO do wyszukania: "<<endl;
+            string nazwisko = MetodyPomocnicze::wczytajLinie();
+            kontaktMenedzer->wyszukajNazwisko(nazwisko);
+            return;
+        }
+        else if (wybor=='2')
+        {
+            system("cls");
+            cout<<"Podaj IMIE do wyszukania: "<<endl;
+            string imie = MetodyPomocnicze::wczytajLinie();
+            kontaktMenedzer->wyszukajImie(imie);
+            return;
         }
     }
 }
@@ -273,12 +285,6 @@ void KsiazkaAdresowa::menuEdycji()
                 Sleep(1000);
                 return;
             }
-
-
         }
-
-
     }
-
-
 }

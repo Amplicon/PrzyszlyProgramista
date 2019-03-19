@@ -36,7 +36,7 @@
       <x>0</x>
       <y>8</y>
       <w>296</w>
-      <h>200</h>
+      <h>208</h>
     </coordinates>
     <panel_attributes>UzytkownikMenedzer
 --
@@ -167,7 +167,7 @@
       <x>664</x>
       <y>8</y>
       <w>296</w>
-      <h>200</h>
+      <h>208</h>
     </coordinates>
     <panel_attributes>KontaktMenedzer
 --
@@ -180,6 +180,8 @@
 + usunKontakt(): void
 + edytujKontakt(): void
 + wyswietlWszystkieKontakty(): void
++ wyszukajImie(): void
++ wyszukajNazwisko(): void
 - podajDaneNowegoKontaktu(): Kontakt
 - pobierzIdNowegoKontaktu(): int
 - wyswietlDaneKontaktu():void</panel_attributes>
@@ -211,12 +213,12 @@
     <id>Relation</id>
     <coordinates>
       <x>136</x>
-      <y>200</y>
+      <y>208</y>
       <w>24</w>
-      <h>72</h>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -255,12 +257,12 @@
     <id>Relation</id>
     <coordinates>
       <x>808</x>
-      <y>200</y>
+      <y>208</y>
       <w>24</w>
-      <h>72</h>
+      <h>64</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -277,22 +279,33 @@
     <id>Relation</id>
     <coordinates>
       <x>224</x>
-      <y>200</y>
+      <y>208</y>
       <w>24</w>
-      <h>240</h>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;280.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;270.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>720</x>
-      <y>200</y>
+      <y>208</y>
       <w>24</w>
-      <h>240</h>
+      <h>232</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;280.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>240</y>
+      <w>24</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
   </element>
 </diagram>

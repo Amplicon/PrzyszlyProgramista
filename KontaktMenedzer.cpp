@@ -20,6 +20,7 @@ void KontaktMenedzer::wyswietlWszystkieKontakty()
     {
         wyswietlDaneKontaktu(kontakty[i]);
     }
+    return;
 }
 
 void KontaktMenedzer::wyswietlDaneKontaktu(Kontakt kontakt)
@@ -87,6 +88,46 @@ void KontaktMenedzer::usunKontakt(int idKontaktu)
     system("cls");
     cout<<"Nie znaleziono kontaktu o podanym ID!";
     Sleep(1000);
+    return;
+}
+
+void KontaktMenedzer::wyszukajImie(string imie)
+{
+    system("cls");
+    bool znaleziono=false;
+    for(unsigned i=0; i<kontakty.size(); i++)
+    {
+        if(imie==kontakty[i].pobierzImie())
+        {
+            wyswietlDaneKontaktu(kontakty[i]);
+            znaleziono=true;
+        }
+    }
+    if(znaleziono==false)
+    {
+        cout<<"Nie znaleziono imienia : "<<imie<<endl;
+    }
+    system("pause");
+    return;
+}
+
+void KontaktMenedzer::wyszukajNazwisko(string nazwisko)
+{
+    system("cls");
+    bool znaleziono=false;
+    for(unsigned i=0; i<kontakty.size(); i++)
+    {
+        if(nazwisko==kontakty[i].pobierzNazwisko())
+        {
+            wyswietlDaneKontaktu(kontakty[i]);
+            znaleziono=true;
+        }
+    }
+    if(znaleziono==false)
+    {
+        cout<<"Nie znaleziono nazwiska : "<<nazwisko<<endl;
+    }
+    system("pause");
     return;
 }
 
