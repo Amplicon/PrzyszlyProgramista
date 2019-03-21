@@ -9,25 +9,25 @@
       <w>256</w>
       <h>240</h>
     </coordinates>
-    <panel_attributes>KsiazkaAdresowa
+    <panel_attributes>AddressBook
 --
-- uzytkownikMenedzer: UzytkownikMenedzer
-- *kontaktMenedzer: KontaktMenedzer
-- NAZWA_PLIKU_Z_KONTAKTAMI: string
+- userManager: UserManager
+- *contactManager: contactManager
+- CONTACT_FILE_NAME: string
 --
-+ KsiazkaAdresowa()
-+ ~KsiazkaAdresowa()
-+ rejestracjaUzytkownika(): void
-+ logowanieUzytkownika():void
-+ wylogujUzytkownika(): void
-+ dodajKontakt(): void
-+ wyswietlWszytskieKontakty(): void
-+ zalogowanyUzytkownik(): bool
-+ zmianaHaslaUzytkownika(): void
-+ menuGlowne(): char 
-+ menuLogowania(): char 
-+ menuWyszukiwania(): char 
-+ menuEdycji(): void </panel_attributes>
++ AddressBook()
++ ~AddressBook()
++ registerUser(): void
++ logUserIn():void
++ logUserOut(): void
++ addContact(): void
++ displayAllContacts(): void
++ loggedUser(): bool
++ changeUserPassword(): void
++ mainMenu(): char 
++ loginMenu(): char 
++ searchMenu(): char 
++ editionMenu(): void </panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -38,22 +38,22 @@
       <w>296</w>
       <h>208</h>
     </coordinates>
-    <panel_attributes>UzytkownikMenedzer
+    <panel_attributes>UserManager
 --
-- uzytkownicy: vector &lt;Uzytkownik&gt;
-- idZalogowanegoUzytkownika: int
+- users: vector &lt;User&gt;
+- loggedUserId: int
 --
-+ UzytkownikMenedzer()
-+ rejestracjaUzytkownika(): void
-+ logowanieUzytkownika(): void
-+ zmianaHaslaUzytkownika(): void 
-+ wylogujUzytkownika(): void
-+ wczytajUzytkownikowZPliku(): void
-+ pobierzIdZalogowanegoUzytkownika(): int
-+ zalogowanyUzytkownik(): bool
-- podajDaneNowegoUzytkownika(): Uzytkownik
-- pobierzIdNowegoUzytkownika(): int
-- czyIstniejeLogin(): bool
++ UserManager()
++ registerUser(): void
++ logUserIn(): void
++ changeUserPassword(): void 
++ logUserOut(): void
++ readUsersFromFile(): void
++ readLoggedUserId(): int
++ isUserLogged(): bool
+- readNewUserData(): Uzytkownik
+- readNewUserId(): int
+- isLoginExist(): bool
 
 </panel_attributes>
     <additional_attributes/>
@@ -66,11 +66,11 @@
       <w>104</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>Uzytkownik
+    <panel_attributes>User
 --
 - id: int
 - login: string
-- haslo: string</panel_attributes>
+- password: string</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -81,18 +81,18 @@
       <w>296</w>
       <h>208</h>
     </coordinates>
-    <panel_attributes>PlikZUzytkownikami
+    <panel_attributes>UserFile
 --
-- NAZWA_PLIKU_Z_UZYTKOWNIKAMI: string
-- plikTekstowy: fstream
+- USER_FILE_NAME: string
+- textFile: fstream
 --
-+ PlikUzytkownicy()
-- czyPlikJestPusty(): bool
-- przygotujDaneUzytkownikaDoZapisu(): string
--  pobierzDaneUzytkownika(): Uzytkownik
-+ dopiszUzytkownikaDoPliku(): void
-+ wczytajUzytkownikowZPliku(): vector&lt;Uzytkownik&gt;
-+ aktualizujPlikUzytkownicy(): void
++ UserFile()
+- isFileEmpty(): bool
+- prepareUserDataForSaving(): string
+- readUserData(): Uzytkownik
++ addUserToFile(): void
++ readUsersFromFile(): vector&lt;Uzytkownik&gt;
++ updateUserFile(): void
 </panel_attributes>
     <additional_attributes/>
   </element>
@@ -100,19 +100,19 @@
     <id>UMLClass</id>
     <coordinates>
       <x>336</x>
-      <y>424</y>
+      <y>432</y>
       <w>304</w>
       <h>208</h>
     </coordinates>
-    <panel_attributes>MetodyPomocnicze
+    <panel_attributes>Tools
 --
-+ konwerjsaIntNaString(): string
-+ zamienPierwszaLitereNaDuzaAPozostaleNaMale(): string
-+ konwersjaStringNaInt(string linia): int
-+ pobierzLiczbe(): string
-+ wczytajLinie(): string
-+ wczytajZnak(): char
-+ wczytajLiczbe(): int</panel_attributes>
++ changeIntToString(): string
++ setFirstLetterCapital(): string
++ changeStringToInt(string linia): int
++ readNumber(): string
++ lineInput(): string
++ characterInput(): char
++ integerInput(): int</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -123,23 +123,23 @@
       <w>296</w>
       <h>208</h>
     </coordinates>
-    <panel_attributes>PlikKontakty
+    <panel_attributes>ContactFile
 --
-- NAZWA_PLIKU_Z_KONTAKTAMI: string
-- plikTekstowy: fstream
+- CONTACT_FILE_NAME: string
+- textFile: fstream
 --
-+ PlikKontakty()
-+ dopiszKontaktDoPliku(): void
-+ wczytajKontaktyZPliku(): vector&lt;Kontakt&gt;
-+ aktualizujPlikKontakty(): void
-+ usunKontaktZPliku(): void
-- czyPlikJestPusty(): bool
-- przygotujDaneKontaktuDoZapisania(): string
-- pobierzDaneKontaktu(): Kontakt
-- pobierzIdUzytkownikaZLinii(): int
-- pobierzIdKontaktuZLinii(): int
-- zmienNazwePliku(): void
-- usunPlik(): void</panel_attributes>
++ ContactFile()
++ addContactToFile(): void
++ readContactFromFile(): vector&lt;Contact&gt;
++ updateContactFile(): void
++ removeContactFromFile(): void
+- isFileEmpty(): bool
+- prepareContactDataForSaving(): string
+- readContactData(): Kontakt
+- readUserIdFromLine(): int
+- readContactIdFromLine(): int
+- changeFileName(): void
+- removeFile(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -150,14 +150,14 @@
       <w>120</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>Kontakt
+    <panel_attributes>Contact
 --
 - id: int
-- idUzytkownika: int
-- imie: string
-- nazwisko: string
-- adres: string
-- telefon: string
+- userId: int
+- name: string
+- surname: string
+- address: string
+- phoneNumber: string
 - email: string</panel_attributes>
     <additional_attributes/>
   </element>
@@ -169,21 +169,21 @@
       <w>296</w>
       <h>208</h>
     </coordinates>
-    <panel_attributes>KontaktMenedzer
+    <panel_attributes>ContactManager
 --
-- kontakty: vector &lt;Kontakt&gt;
-- ID_ZALOGOWANEGO_UZYTKOWNIKA: int
+- contacts: vector &lt;Contact&gt;
+- LOGGED_USER_ID: int
 --
-+ KontaktMenedzer()
-+ dodajKontakt(): void
-+ usunKontakt(): void
-+ edytujKontakt(): void
-+ wyswietlWszystkieKontakty(): void
-+ wyszukajImie(): void
-+ wyszukajNazwisko(): void
-- podajDaneNowegoKontaktu(): Kontakt
-- pobierzIdNowegoKontaktu(): int
-- wyswietlDaneKontaktu():void</panel_attributes>
++ ContactManager()
++ addContact(): void
++ removeContact(): void
++ editContact(): void
++ displayAllContacts(): void
++ searchByName(): void
++ searchBySurname(): void
+- readNewContactData(): Contact
+- readNewContactId(): int
+- displayContactData():void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -237,10 +237,10 @@ bg=black</panel_attributes>
       <x>296</x>
       <y>480</y>
       <w>56</w>
-      <h>24</h>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>10.0;10.0;50.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;50.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -270,10 +270,10 @@ bg=black</panel_attributes>
       <x>632</x>
       <y>480</y>
       <w>56</w>
-      <h>24</h>
+      <h>32</h>
     </coordinates>
     <panel_attributes>lt=-</panel_attributes>
-    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>50.0;10.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -303,11 +303,11 @@ bg=black</panel_attributes>
       <x>480</x>
       <y>240</y>
       <w>24</w>
-      <h>200</h>
+      <h>208</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;230.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;240.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -315,11 +315,11 @@ bg=black</panel_attributes>
       <x>272</x>
       <y>208</y>
       <w>160</w>
-      <h>232</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;150.0;180.0;150.0;180.0;270.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0;180.0;150.0;180.0;280.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -327,10 +327,10 @@ bg=black</panel_attributes>
       <x>552</x>
       <y>208</y>
       <w>160</w>
-      <h>232</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>lt=-
 </panel_attributes>
-    <additional_attributes>180.0;10.0;180.0;150.0;10.0;150.0;10.0;270.0</additional_attributes>
+    <additional_attributes>180.0;10.0;180.0;150.0;10.0;150.0;10.0;280.0</additional_attributes>
   </element>
 </diagram>
